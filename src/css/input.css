@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+    /* Costum CSS */
+@layer components{
+
+    /* Preferences */
+    html{
+        scroll-behavior: smooth;
+    }
+    
+    body::before{
+        content: '';
+        position: fixed;
+        z-index: -999;
+        width: 30rem;
+        height: 30rem;
+        background: linear-gradient(90deg, rgba(63,65,177,1) 0%, rgba(255,0,0,1) 100%);
+        border-radius: 100%;
+    }
+
+    body::after{
+        content: '';
+        position: fixed;
+        top: 15rem;
+        left: 55rem;
+        z-index: -999;
+        width: 30rem;
+        height: 30rem;
+        background: linear-gradient(90deg, rgba(201,0,255,1) 0%, rgba(63,167,177,1) 100%);
+        border-radius: 100%;
+    }
+
+    body{
+        background-color: #0D0F12;
+    }
+
+    body::-webkit-scrollbar{
+        width: 15px;
+    }
+      
+    body::-webkit-scrollbar-track{
+        background: #2F353F;
+    }
+      
+    body::-webkit-scrollbar-thumb{
+        background-color: #515B6B;
+    }
+    
+    body::-webkit-scrollbar-thumb:hover{
+        background-color: #7D899D;
+    }
+    
+    /* Preferences end */
+
+    /* Calculator Button */
+
+    .calc-btn{
+        background: rgba(47, 53, 63, 0.5);
+        backdrop-filter: blur(15px);
+        color: white;
+        transition: 0.5s;
+    }
+
+    .calc-btn:hover{
+        background: rgba(98, 106, 119, 0.5);
+        transition: 0s;
+    }
+
+    .calc-result{
+        background: rgba(47, 53, 63, 0.5);
+        backdrop-filter: blur(15px);
+    }
+
+    .result-btn{
+        background: rgba(97, 148 ,0, 0.7);
+        transition: 0.5s;
+    }
+
+    .result-btn:hover{
+        transition: 0s;
+        background: rgba(239, 122, 49, 0.5);
+    }
+
+    .calc-btn:active{
+        background: rgba(39, 20, 229, 0.5)
+    }
+
+    /* Calculator Button end */
+
+    /* Input */
+    
+    .input{
+        position: relative;
+        margin-bottom: 1.5rem 0;
+        margin-bottom: 20px;
+    }
+    
+    input{
+        border: none;
+        outline: none;
+        padding-left: 0.75rem;
+        border-radius: 10px;
+    }
+    
+    .input-text{
+        font-size: 1.75rem;
+        border-bottom: 2px solid rgb(144, 201, 189);
+        transition: all 0.5s;
+    }
+    
+    .input-text:hover{
+        background: rgb(245, 244, 244);
+    }
+    
+    .input-text + .border {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background-color: rgb(85, 85, 255);
+        border: none;
+        transition: 0.5s;
+    }
+      
+    .input-text:focus + .border {
+        width: 20rem;
+    }
+    /* Input end */
+
+}

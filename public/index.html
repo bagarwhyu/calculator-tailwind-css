@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator | BAGARW.</title>
+    <!-- Links -->
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="flex fixed z-50 justify-between w-full h-[4rem] bg-nav shadow-lg">
+        <h1 class="leading-[4rem] text-[2rem] ml-8 text-white font-montserrat font-bold">BAGARW.</h1>
+        <ul class="mr-5 flex flex-row">
+            <li>
+                <a class="leading-[4.1rem] text-[2rem] text-white font-poppins mx-4 p-2 hover:bg-hover-blue transition-all duration-500" href="#kalkulator">Kalkulator</a>
+            </li>
+            <li>
+                <a class="leading-[4.1rem] text-[2rem] text-white font-poppins mx-4 p-2 hover:bg-hover-blue transition-all duration-500" onclick="toggleNav()" href="#">Bangun Datar</a>
+                <ul class="flex relative -right-[240%] transition-all duration-500" id="bgn-dtr">
+                    <li>
+                        <a class="leading-[2.3rem] bg-nav shadow-lg text-[1rem] text-white font-poppins p-2 hover:bg-hover-blue transition-all duration-500" onclick="removeNav()" href="#persegi">Persegi</a>
+                    </li>
+                    <li>
+                        <a class="leading-[2.3rem] bg-nav shadow-lg text-[1rem] text-white font-poppins p-2 hover:bg-hover-blue transition-all duration-500" onclick="removeNav()" href="#segitiga">Segitiga</a>
+                    </li>
+                    <li>
+                        <a class="leading-[2.3rem] bg-nav shadow-lg text-[1rem] text-white font-poppins p-2 hover:bg-hover-blue transition-all duration-500" onclick="removeNav()" href="#lingkaran">Lingkaran</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="leading-[4.1rem] text-[2rem] text-white font-poppins mx-4 p-2 hover:bg-hover-blue transition-all duration-500" href="#konversi-suhu">Konversi Suhu</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Header end -->
+
+    <!-- Section | Kalkulator -->
+    <section id="kalkulator" class="calcu h-[100vh] flex justify-center items-center pt-10">
+        <div class="calc-result p-2 w-[40%] h-[90%]">
+            <form name="form">
+                <input type="text" readonly name="textView" class="textView text-white text-right text-[4rem] bg-transparent font-poppins float-right">
+            </form>
+        </div>
+        <div class="pl-2 w-[40%] h-[90%] grid grid-cols-4 gap-1 grid-rows-5">
+                <button class="calc-btn" value="1" onclick="insert(1)">1</button>
+                <button class="calc-btn" value="2" onclick="insert(2)">2</button>
+                <button class="calc-btn" value="3" onclick="insert(3)">3</button>
+                <button class="calc-btn" onclick="clr()">C</button>
+                <button class="calc-btn" value="4" onclick="insert(4)">4</button>
+                <button class="calc-btn" value="5" onclick="insert(5)">5</button>
+                <button class="calc-btn" value="6" onclick="insert(6)">6</button>
+                <button class="calc-btn" value="/" onclick="insert('/')">/</button>
+                <button class="calc-btn" value="7" onclick="insert(7)">7</button>
+                <button class="calc-btn" value="8" onclick="insert(8)">8</button>
+                <button class="calc-btn" value="9" onclick="insert(9)">9</button>
+                <button class="calc-btn" value="X" onclick="insert('*')">X</button>
+                <button class="calc-btn" value="0" onclick="insert(0)">0</button>
+                <button class="calc-btn" value="." onclick="insert('.')">.</button>
+                <button class="calc-btn" value="-" onclick="insert('-')">-</button>
+                <button class="calc-btn" value="+" onclick="insert('+')">+</button>
+                <button class="calc-btn" value="(" onclick="insert('(')">(</button>
+                <button class="calc-btn" value=")" onclick="insert(')')">)</button>
+                <button class="calc-btn" value="%" onclick="insert('%')">%</button>
+                <button class="calc-btn result-btn" onclick="equal()">=</button>
+        </div>
+    </section>
+    <!-- Section | Kalkulator end -->
+
+    <!-- Section | Bangun-Datar -->
+    <section id="persegi" class="pt-10 h-[100vh] flex justify-center items-center">
+        <div class="w-[50%] h-[50%] bg-nav rounded-3xl shadow-md p-5">
+            <h1 class="text-[2rem] ml-8 text-white font-montserrat font-bold">Persegi</h1>
+            <div class="input">
+                <input type="text" id="panjangPersegi" name="panjangPersegi" placeholder="Panjang Persegi" class="input-text" autocomplete="off">
+                <span class="border"></span>
+            </div>
+            <div class="input">
+                <input type="text" id="lebarPersegi" name="lebarPersegi" placeholder="Lebar Persegi" class="input-text" autocomplete="off">
+                <span class="border"></span>
+            </div>
+            <h1 id="hasilPersegi" class="bg-white text-[25px] ml-8 w-[3rem] text-center h-10 rounded-lg"></h1>
+            <button class="bg-nav w-[8rem] h-10 mt-3 mr-3 rounded-lg font-poppins text-white border hover:bg-white hover:text-nav transition-all duration-100" onclick="luasPersegi()">Luas Persegi</button>
+            <button class="bg-nav w-[8rem] h-10 mt-3 mr-3 rounded-lg font-poppins text-white border hover:bg-white hover:text-nav transition-all duration-100" onclick="kelilingPersegi()">Keliling Persegi</button>
+        </div>
+    </section>
+    <section id="segitiga" class="pt-10 h-[100vh] flex justify-center items-center">
+        <div class="w-[50%] h-[50%] bg-nav rounded-3xl shadow-lg p-5">
+            <h1 class="text-[2rem] ml-8 text-white font-montserrat font-bold">Segitiga</h1>
+            <div class="input">
+                <input type="text" id="alasSegitiga" name="alasSegitiga" placeholder="Alas Segitiga" class="input-text" autocomplete="off">
+                <span class="border"></span>
+            </div>
+            <div class="input">
+                <input type="text" id="tinggiSegitiga" name="tinggiSegitiga" placeholder="Tinggi Segitiga" class="input-text" autocomplete="off">
+                <span class="border"></span>
+            </div>
+            <h1 id="hasilLuasSegitiga" class="bg-white text-[25px] ml-8 w-[3rem] text-center h-10 rounded-lg"></h1>
+            <button class="bg-nav w-[8rem] h-10 mt-3 mr-3 rounded-lg font-poppins text-white border hover:bg-white hover:text-nav transition-all duration-100" onclick="luasSegitiga()">Luas Segitiga</button>
+        </div>
+    </section>
+    <section class="pt-10 h-[100vh] flex justify-center items-center">
+        <div class="w-[50%] h-[60%] bg-nav rounded-3xl shadow-lg p-5">
+            <h1 class="text-[2rem] ml-8 text-white font-montserrat font-bold">Segitiga</h1>
+            <div class="input">
+                <input type="text" id="sisiSegitigaA" name="sisiSegitigaA" placeholder="Sisi Segitiga A" class="input-text" autocomplete="off">
+                <span class="border"></span>
+            </div>
+            <div class="input">
+                <input type="text" id="sisiSegitigaB" name="sisiSegitigaB" placeholder="Sisi Segitiga B" class="input-text" autocomplete="off">
+                <span class="border"></span>
+            </div>
+            <div class="input">
+                <input type="text" id="sisiSegitigaC" name="sisiSegitigaC" placeholder="Sisi Segitiga C" class="input-text" autocomplete="off">
+                <span class="border"></span>
+            </div>
+            <h1 id="hasilKelilingSegitiga" class="bg-white text-[25px] ml-8 w-[3rem] text-center h-10 rounded-lg"></h1>
+            <button class="bg-nav w-[8rem] h-10 mt-3 mr-3 rounded-lg font-poppins text-white border hover:bg-white hover:text-nav transition-all duration-100" onclick="kelilingSegitiga()">Keliing Segitiga</button>
+        </div>
+    </section>
+    <section id="lingkaran" class="pt-10 h-[100vh] flex justify-center items-center">
+        <div class="w-[50%] h-[40%] bg-nav rounded-3xl shadow-lg p-5">
+            <h1 class="text-[2rem] ml-8 text-white font-montserrat font-bold">Lingkaran</h1>
+            <div class="input">
+                <input type="text" id="jariJari" name="jariJari" placeholder="Jari-jari Lingkaran" class="input-text" autocomplete="off">
+                <span class="border"></span>
+            </div>
+            <h1 id="hasilLingkaran" class="bg-white text-[25px] ml-8 w-[3rem] text-center h-10 rounded-lg"></h1>
+            <button class="bg-nav w-[9rem] h-10 mt-3 mr-3 rounded-lg font-poppins text-white border hover:bg-white hover:text-nav transition-all duration-100" onclick="luasLingkaran()">Luas Lingkaran</button>
+            <button class="bg-nav w-[9rem] h-10 mt-3 mr-3 rounded-lg font-poppins text-white border hover:bg-white hover:text-nav transition-all duration-100" onclick="kelilingLingkaran()">Keliling Lingkaran</button>
+        </div>
+    </section>
+    <!-- Section | Bangun-Datar end -->
+    
+    <!-- Section | Konversi-Suhu -->
+    <section id="konversi-suhu" class="pt-10 h-[100vh] flex justify-center items-center">
+        <div class="w-[90%] h-[90%] p-4 bg-nav rounded-3xl shadow-lg">
+            <h1 class="leading-[4rem] text-[2rem] ml-8 text-white font-montserrat font-bold">Konversi Suhu</h1>
+            <div class="flex">
+                <div class="input">
+                    <input type="text" onchange="conTemp()" oninput="conTemp()" id="input-Temp" name="input-Temp" placeholder="Input-" class="input-text" autocomplete="off">
+                    <span class="border"></span>
+                </div>
+                <select onchange="conTemp()" name="temp-type" class="ml-8 w-[10rem] h-[2rem] text-[1.5rem] cursor-pointer text-nav rounded-lg font-montserrat font-bold" id="temp-type">
+                    <option value="Celcius">Celcius</option>
+                    <option value="Farenheit">Farenheit</option>
+                    <option value="Reamur">Reamur</option>
+                    <option value="Kelvin">Kelvin</option>
+                </select>
+            </div>
+            <h1 class="leading-[4rem] text-[2rem] ml-8 text-white font-montserrat font-bold">Celcius:</h1>
+            <h1 id="C" class="bg-white text-[25px] ml-8 w-[20rem] text-center h-10 rounded-lg"></h1>
+            <h1 class="leading-[4rem] text-[2rem] ml-8 text-white font-montserrat font-bold">Farenheit:</h1>
+            <h1 id="F" class="bg-white text-[25px] ml-8 w-[20rem] text-center h-10 rounded-lg"></h1>
+            <h1 class="leading-[4rem] text-[2rem] ml-8 text-white font-montserrat font-bold">Reamur:</h1>
+            <h1 id="R" class="bg-white text-[25px] ml-8 w-[20rem] text-center h-10 rounded-lg"></h1>
+            <h1 class="leading-[4rem] text-[2rem] ml-8 text-white font-montserrat font-bold">Kelvin:</h1>
+            <h1 id="K" class="bg-white text-[25px] ml-8 w-[20rem] text-center h-10 rounded-lg"></h1>
+        </div>
+    </section>
+    <!-- Section | Konversi-Suhu end -->
+
+    <script src="script/function.js"></script>
+</body>
+</html>
